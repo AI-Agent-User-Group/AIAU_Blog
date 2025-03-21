@@ -4,6 +4,8 @@ dist/
 # generated types
 .astro/
 
+# specstory
+.specstory
 # dependencies
 node_modules/
 
