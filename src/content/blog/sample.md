@@ -49,7 +49,7 @@ function sayHello() {
 
 [Astroのドキュメント](https://docs.astro.build/ja/)
 
-![画像の代替テキスト](https://example.com/image.jpg)
+![画像の代替テキスト](/AIAU_Blog/aiau_logo.svg)
 
 ### 表
 
