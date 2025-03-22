@@ -19,7 +19,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   site: "https://ai-agent-user-group.github.io/", // your site url
   title: "Ai Agent User Knowledge",
-  slogan: "AIエージェントと共に創る未来",
+  slogan: "AIエージェントユーザー会",
   description: "AIエージェントユーザー会は、AIエージェントの活用と最新情報を共有し、効率的な開発やビジネス活用を目指すコミュニティです。",
   social: {
     github: "https://github.com/AI-Agent-User-Group", // leave empty if you don't want to show the github
