@@ -1,6 +1,7 @@
 ---
 title: "SAMPLE"
 description: "Markdownを利用した記事作成のサンプル"
+author: "めい"
 date: 2025-03-22T08:00:00+09:00
 tags: ['sample']
 ---

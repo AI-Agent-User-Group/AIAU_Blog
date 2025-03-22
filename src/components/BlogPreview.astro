@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, tags, image } = post.data;
+const { title, description, date, tags, image, author } = post.data;
 
 // Ensure image dimensions are available to prevent CLS
 const imageWidth = 800; // Set appropriate default width
@@ -36,8 +36,9 @@ const imageHeight = 400; // Set appropriate default height
         {title}
       </a>
     </h2>
-    <div class="mb-4">
+    <div class="mb-4 flex items-center gap-4">
       <PostDate date={date} />
+      {author && <span class="text-gray-600 dark:text-gray-400">by {author}</span>}
     </div>
   </header>
   <p class="text-gray-800 dark:text-gray-200 mb-4">{description}</p>
