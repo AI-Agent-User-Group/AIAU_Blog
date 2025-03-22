@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: siteConfig.site,
+  base: 'AIAU_Blog',
   integrations: [tailwind(), sitemap()],
   markdown: {
     rehypePlugins: [
