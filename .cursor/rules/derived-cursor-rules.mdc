@@ -58,6 +58,9 @@ Adhere to standard JavaScript/TypeScript conventions.  Further style guidelines 
 ## PROJECT-SPECIFIC STANDARDS
 -   All blog posts must use frontmatter for metadata.  Ensure the `date` field is included in the frontmatter to match the collection schema.  Refer to [https://docs.astro.build/en/guides/content-collections/](https://docs.astro.build/en/guides/content-collections/) for schema details and [https://docs.astro.build/en/reference/errors/invalid-content-entry-data-error/](https://docs.astro.build/en/reference/errors/invalid-content-entry-data-error/) for error handling.
 -   Use consistent naming conventions for components, files, and variables.
+-   File names for blog posts should follow the format: `YYYY-MM-DD-title.md`.
+-  Add `author` field to blog post frontmatter.  The `author` field will be displayed in both the list and detail views of blog posts.  Implementation details:  The `author` field from the frontmatter is accessed in `src/pages/blog/[...page].astro` and `src/pages/blog/[slug].astro` components and displayed using `<span>` elements styled to match existing design and dark mode. If the author field is not present, it will not be displayed.  The schema was updated in `src/content/config.ts` to include the optional `author` field.
+
 
 ## WORKFLOW & RELEASE RULES
 -   Before committing code, run `npm install` to update `package-lock.json`.
@@ -66,12 +69,187 @@ Adhere to standard JavaScript/TypeScript conventions.  Further style guidelines 
 
 
 ## REFERENCE EXAMPLES
-Add examples of common tasks and code snippets here.
+Add examples of common tasks and code snippets here.  See the new blog post creation guide and markdown sample article in the Project Documentation section for examples.
 
 ## PROJECT DOCUMENTATION & CONTEXT SYSTEM
 -   Use Markdown for documentation.
 -   Document all API endpoints and their usage.
 - Version updates recorded on 2025-03-22: Astro, @astrojs packages, zod, autoprefixer, postcss, rollup, esbuild, magic-string, mrmime, p-limit, p-queue, remark-gfm, tinyexec, tsconfck, unstorage, vite, vitefu, yocto-spinner, zod-to-json-schema, browserslist, caniuse-lite, electron-to-chromium, node-releases, update-browserslist-db, and various @esbuild and @rollup packages.  `npm install` should be run before `npm ci` to resolve version conflicts.
+- Added blog post creation guide on 2025-03-22:  See below.
+- Added markdown sample article on 2025-03-22: See below.
+
+### Blog Post Creation Guide
+# AIAU ブログ 記事作成ガイド
+
+このガイドでは、AIAUブログの記事を作成する手順について説明します。
+
+## 目次
+
+1. [記事作成の準備](#記事作成の準備)
+2. [記事の作成手順](#記事の作成手順)
+3. [記事の投稿方法](#記事の投稿方法)
+4. [記事作成のガイドライン](#記事作成のガイドライン)
+
+## 記事作成の準備
+
+1. リポジトリのクローン
+   ```bash
+   git clone https://github.com/your-username/AIAU_Blog.git
+   cd AIAU_Blog
+   ```
+
+2. 必要な依存関係のインストール
+   ```bash
+   npm install
+   ```
+
+## 記事の作成手順
+
+1. `src/content/blog` ディレクトリ内に新しいマークダウンファイルを作成
+   - ファイル名の形式: `YYYY-MM-DD-title.md`
+   - 例: `2024-03-20-getting-started-with-ai.md`
+
+2. 記事のフロントマター（メタデータ）を追加
+   ```markdown
+   ---
+   title: '記事のタイトル'
+   date: 'YYYY-MM-DD'
+   author: '著者名'
+   description: '記事の簡単な説明'
+   tags: ['タグ1', 'タグ2']
+   ---
+   ```
+
+3. 記事の本文を作成
+   - Markdownフォーマットで記事を書く
+   - 画像は `public/images` ディレクトリに配置
+   - 画像の参照: `![代替テキスト](/images/ファイル名.png)`
+
+## 記事の投稿方法
+
+1. 変更をステージング
+   ```bash
+   git add .
+   ```
+
+2. 変更をコミット
+   ```bash
+   git commit -m "Add new blog post: タイトル"
+   ```
+
+3. 変更をプッシュ
+   ```bash
+   git push origin main
+   ```
+
+## 記事作成のガイドライン
+
+### 記事の構成
+- 明確な導入部分
+- 適切な見出しの使用
+- 段落の適切な区切り
+- まとめや結論の提示
+
+### 文章のスタイル
+- 簡潔で分かりやすい文章
+- 専門用語は必要に応じて説明を追加
+- 読者の理解を助ける例示の活用
+
+### 画像・メディア
+- 適切な画像サイズ（推奨: 幅1200px以下）
+- 画像の代替テキストを必ず設定
+- 著作権に配慮した画像の使用
+
+### SEO対策
+- 適切なタイトルの設定
+- メタディスクリプションの最適化
+- 適切なタグ付け
+
+## 開発環境の起動
+
+ローカルで記事をプレビューする場合：
+```bash
+npm run dev
+```
+
+ブラウザで `http://localhost:3000` を開いて確認できます。
+
+## サポート
+
+質問や問題がある場合は、GitHubのIssueを作成してください。
+
+
+### Markdown Sample Article
+```markdown
+---
+title: "SAMPLE"
+description: "Markdownを利用した記事作成のサンプル"
+date: 2025-03-22T08:00:00+09:00
+tags: ['sample']
+---
+
+# Markdownサンプル記事
+
+## 見出し
+
+Markdownでは # の数で見出しレベルを指定できます。
+
+### 本文
+
+通常の本文はこのように書きます。**太字**や*斜体*、~~打ち消し線~~なども使用できます。
+
+### リスト
+
+順序なしリスト：
+- 項目1
+- 項目2
+  - サブ項目A
+  - サブ項目B
+
+順序付きリスト：
+1. 最初の項目
+2. 二番目の項目
+3. 三番目の項目
+
+### コードブロック
+
+インラインコード: `const greeting = "Hello, World!";`
+
+```javascript
+function sayHello() {
+    console.log("こんにちは！");
+    return true;
+}
+```
+
+### 引用
+
+> これは引用文です。
+> 複数行に渡って引用することもできます。
+
+### リンクと画像
+
+[Astroのドキュメント](https://docs.astro.build/ja/)
+
+![画像の代替テキスト](https://example.com/image.jpg)
+
+### 表
+
+| 列1 | 列2 | 列3 |
+|-----|-----|-----|
+| A1 | B1 | C1 |
+| A2 | B2 | C2 |
+
+### 水平線
+
+---
+
+### チェックリスト
+
+- [x] 完了したタスク
+- [ ] 未完了のタスク
+- [ ] 今後のタスク
+```
 
 ## DEBUGGING
 -   Use the Astro dev server for debugging.
@@ -82,4 +260,5 @@ Add examples of common tasks and code snippets here.
 -   DO update your lock file before running `npm ci`.
 -   DO use consistent versioning.
 -   DON'T commit code with version conflicts.
--   DO ensure all blog posts adhere to the content collection schema.
+-   DO ensure all blog posts adhere to the content collection schema, including the `author` field.
+-   DO use the `YYYY-MM-DD-title.md` format for blog post filenames.
