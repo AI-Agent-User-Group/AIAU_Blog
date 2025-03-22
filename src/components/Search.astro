@@ -31,7 +31,7 @@
   }
 
   async function initialize() {
-    const response = await fetch('/api/search.json')
+    const response = await fetch('/AIAU_Blog/api/search.json')
     searchData = await response.json()
 
     searchInput = document.getElementById('search-input')
