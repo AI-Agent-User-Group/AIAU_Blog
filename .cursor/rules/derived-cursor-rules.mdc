@@ -1,0 +1,85 @@
+---
+description: Cursor rules derived by SpecStory from the project AI interaction history
+globs: *
+---
+
+## PROJECT OVERVIEW
+This project is an Astro-based blog.  The structure is detailed in the `project-structure` section.
+
+## CODE STYLE
+Adhere to standard JavaScript/TypeScript conventions.  Further style guidelines will be added here as needed.
+
+## FOLDER ORGANIZATION
+-   `public`: Static assets.
+-   `src`: Source code.
+    -   `components`: Reusable Astro components.
+    -   `content`: Markdown blog posts and configuration.
+    -   `layouts`: Astro layouts.
+    -   `pages`: Astro pages.
+    -   `styles`: CSS styles.
+    -   `utils`: Utility functions.
+-   `scripts`: Build and deployment scripts.
+
+## TECH STACK
+-   Astro v5.5.4
+-   TypeScript
+-   Tailwind CSS
+-   PostCSS v8.5.3
+-   Autoprefixer v10.4.21
+-   @astrojs/rss v4.0.11
+-   @astrojs/sitemap v3.3.0
+-   @astrojs/tailwind v6.0.1
+-   @astrojs/compiler v2.11.0
+-   @astrojs/internal-helpers v0.6.1
+-   @astrojs/markdown-remark v6.3.1
+-   @rollup/pluginutils v5.1.4
+-   Acorn v8.14.1
+-   Zod v3.24.2
+-   ci-info v4.2.0
+-   cookie v1.0.2
+-   es-module-lexer v1.6.0
+-   esbuild v0.25.1
+-   magic-string v0.30.17
+-   mrmime v2.0.1
+-   p-limit v6.2.0
+-   p-queue v8.1.0
+-   remark-gfm v4.0.1
+-   rollup v4.36.0  (Note:  Significant version update from 4.28.1)
+-   tinyexec v0.3.2
+-   tinyglobby v0.2.12 (Note: This package was missing from the lockfile)
+-   tsconfck v3.1.5
+-   unstorage v1.15.0 (Note: This package was missing from the lockfile)
+-   vite v6.2.2
+-   vitefu v1.0.6
+-   yocto-spinner v0.2.1
+-   zod-to-json-schema v3.24.5
+
+
+## PROJECT-SPECIFIC STANDARDS
+-   All blog posts must use frontmatter for metadata.  Ensure the `date` field is included in the frontmatter to match the collection schema.  Refer to [https://docs.astro.build/en/guides/content-collections/](https://docs.astro.build/en/guides/content-collections/) for schema details and [https://docs.astro.build/en/reference/errors/invalid-content-entry-data-error/](https://docs.astro.build/en/reference/errors/invalid-content-entry-data-error/) for error handling.
+-   Use consistent naming conventions for components, files, and variables.
+
+## WORKFLOW & RELEASE RULES
+-   Before committing code, run `npm install` to update `package-lock.json`.
+-   Use GitHub Actions for CI/CD.
+-   Follow semantic versioning for releases.
+
+
+## REFERENCE EXAMPLES
+Add examples of common tasks and code snippets here.
+
+## PROJECT DOCUMENTATION & CONTEXT SYSTEM
+-   Use Markdown for documentation.
+-   Document all API endpoints and their usage.
+- Version updates recorded on 2025-03-22: Astro, @astrojs packages, zod, autoprefixer, postcss, rollup, esbuild, magic-string, mrmime, p-limit, p-queue, remark-gfm, tinyexec, tsconfck, unstorage, vite, vitefu, yocto-spinner, zod-to-json-schema, browserslist, caniuse-lite, electron-to-chromium, node-releases, update-browserslist-db, and various @esbuild and @rollup packages.  `npm install` should be run before `npm ci` to resolve version conflicts.
+
+## DEBUGGING
+-   Use the Astro dev server for debugging.
+-   Utilize browser developer tools for client-side debugging.
+-   Consult the logs in the `.npm/_logs` directory for npm errors.  Check for `InvalidContentEntryDataError` related to missing frontmatter data.
+
+## FINAL DOs AND DON'Ts
+-   DO update your lock file before running `npm ci`.
+-   DO use consistent versioning.
+-   DON'T commit code with version conflicts.
+-   DO ensure all blog posts adhere to the content collection schema.
